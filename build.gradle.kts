@@ -1,5 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-//import org.springframework.boot.gradle.tasks.bundling.BootJar
+import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
 	id("org.springframework.boot") version "3.2.0"
@@ -35,7 +35,7 @@ subprojects {
 	dependencies {
 		// springboot
 		implementation("org.springframework.boot:spring-boot-starter-web")
-		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+//		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 		developmentOnly("org.springframework.boot:spring-boot-devtools")
 
@@ -98,9 +98,9 @@ project(":runner-talk-user") {
 // core 설정
 project(":runner-talk-core") {
 	val jar: Jar by tasks
-//	val bootJar: BootJar by tasks
-//
-//	bootJar.enabled = false
+	val bootJar: BootJar by tasks
+
+	bootJar.enabled = false
 	jar.enabled = true
 
 }

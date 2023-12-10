@@ -10,7 +10,7 @@ import org.springframework.data.mongodb.config.AbstractMongoClientConfiguration
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories
 
 @Configuration
-@EnableMongoRepositories(basePackages = ["com.runner-talk"])
+@EnableMongoRepositories(basePackages = ["com.clprunner.runnertalkchat"])
 class MongoDBConfig: AbstractMongoClientConfiguration() {
 
     @Value("\${spring.data.mongodb.database}")

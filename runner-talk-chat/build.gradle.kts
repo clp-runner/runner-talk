@@ -22,7 +22,7 @@ repositories {
 }
 
 dependencies {
-
+    implementation("org.springframework.boot:spring-boot-starter-data-mongodb")
 }
 
 tasks.withType<KotlinCompile> {

@@ -1,5 +1,5 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-import org.springframework.boot.gradle.tasks.bundling.BootJar
+//import org.springframework.boot.gradle.tasks.bundling.BootJar
 
 plugins {
 	id("org.springframework.boot") version "3.2.0"
@@ -21,6 +21,43 @@ configurations {
 	}
 }
 
+subprojects {
+	apply(plugin = "java")
+
+	apply(plugin = "io.spring.dependency-management")
+	apply(plugin = "org.springframework.boot")
+	apply(plugin = "org.jetbrains.kotlin.plugin.spring")
+
+	apply(plugin = "kotlin")
+	apply(plugin = "kotlin-spring") //all-open
+//	apply(plugin = "kotlin-jpa")
+
+	dependencies {
+		// springboot
+		implementation("org.springframework.boot:spring-boot-starter-web")
+		implementation("org.springframework.boot:spring-boot-starter-data-jpa")
+		implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
+		developmentOnly("org.springframework.boot:spring-boot-devtools")
+
+		// kotlin
+		implementation("org.jetbrains.kotlin:kotlin-reflect")
+		implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
+
+
+		// test
+		testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+		dependencyManagement {
+			imports {
+				mavenBom(org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES)
+			}
+
+			dependencies {
+				dependency("net.logstash.logback:logstash-logback-encoder:6.6")
+			}
+		}
+	}
+}
 repositories {
 	mavenCentral()
 }
@@ -61,9 +98,9 @@ project(":runner-talk-user") {
 // core 설정
 project(":runner-talk-core") {
 	val jar: Jar by tasks
-	val bootJar: BootJar by tasks
-
-	bootJar.enabled = false
+//	val bootJar: BootJar by tasks
+//
+//	bootJar.enabled = false
 	jar.enabled = true
 
 }

@@ -1,4 +1,42 @@
+# Default
 spring:
+  profiles:
+    active: dev
+  web:
+    resources:
+      add-mappings: false
+  main:
+    banner-mode: off
+  data:
+    mongodb:
+      auto-index-creation: true
+  springdoc:
+    swagger-ui:
+      url: /docs/openapi.yaml
+      path: /apidoc
+    api-docs:
+      enabled: false
+logging:
+  config: classpath:logback-spring.xml
+  level:
+    root: info
+    web: info
+    sql: error
+    com.zaxxer: error
+    org.hibernate: error
+    org.hibernate.SQL: error
+    org.springframework: error
+    com.runner-talk: info
+---
+# prod environment
+server:
+  port: 8080
+spring:
+  config:
+    activate:
+      on-profile:
+        - prod
+        - stage
   data:
     mongodb:
       host: localhost
@@ -6,3 +44,27 @@ spring:
       database: runnertalk
       username: runnertalk
       password: runnertalk
+---
+# dev environment
+spring:
+  config:
+    activate:
+      on-profile: dev
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: runnertalk
+      username: runnertalk
+      password: runnertalk
+---
+# test environment
+spring:
+  config:
+    activate:
+      on-profile: test
+de:
+  flapdoodle:
+    mongodb:
+      embedded:
+        version: 4.4.2

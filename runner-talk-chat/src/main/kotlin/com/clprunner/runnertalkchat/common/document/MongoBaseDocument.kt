@@ -1,21 +1,19 @@
-package com.clprunner.runnertalkchat.common.document;
+package com.clprunner.runnertalkchat.common.document
 
-import lombok.Getter;
-import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.Id;
-import org.springframework.data.annotation.LastModifiedDate;
-
-import java.time.ZonedDateTime;
+import lombok.Getter
+import org.springframework.data.annotation.CreatedDate
+import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.LastModifiedDate
+import java.time.ZonedDateTime
 
 @Getter
-public abstract class MongoBaseDocument {
-
+abstract class MongoBaseDocument {
     @Id
-    private String id;
+    private val id: String? = null
 
     @CreatedDate
-    private ZonedDateTime createdAt;
+    private val createdAt: ZonedDateTime? = null
 
     @LastModifiedDate
-    private ZonedDateTime updatedAt;
+    private val updatedAt: ZonedDateTime? = null
 }

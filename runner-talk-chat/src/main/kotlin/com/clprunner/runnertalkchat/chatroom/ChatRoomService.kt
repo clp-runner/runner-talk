@@ -1,11 +1,10 @@
-package com.clprunner.runnertalkchat.chatroom;
+package com.clprunner.runnertalkchat.chatroom
 
-import lombok.RequiredArgsConstructor;
-import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor
+import org.springframework.stereotype.Service
 
 @RequiredArgsConstructor
 @Service
-public class ChatRoomService {
+class ChatRoomService(val chatRollRepository: ChatRoomRepository) {
 
-    private final ChatRoomRepository chatRoomRepository;
 }

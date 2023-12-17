@@ -1,23 +1,22 @@
-package com.clprunner.runnertalkchat.chatroom;
+package com.clprunner.runnertalkchat.chatroom
 
-import com.clprunner.runnertalkchat.common.document.MongoBaseDocument;
-import lombok.*;
-import org.springframework.data.mongodb.core.mapping.Document;
+import com.clprunner.runnertalkchat.common.document.MongoBaseDocument
+import lombok.*
+import org.springframework.data.mongodb.core.mapping.Document
 
 @Document(collection = "ChatRooms")
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Builder
 @Getter
-public class ChatRoom extends MongoBaseDocument {
+class ChatRoom : MongoBaseDocument() {
+    private lateinit var name: String
 
-    @NonNull
-    private String name;
-    private String description;
-    @NonNull
-    private String creatorId;
-    @NonNull
-    private String[] participants;
+    private var description: String? = null
+
+    private lateinit var creatorId: String
+
+    private lateinit var participants: Array<String>
 
 //    @TODO need to add lastMessage field
 }

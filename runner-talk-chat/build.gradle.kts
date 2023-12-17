@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-
+    id("io.freefair.lombok") version "8.4"
 }
 
 group = "com.clp-runner"

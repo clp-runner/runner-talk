@@ -1,5 +1,6 @@
 package com.clprunner.runnertalkchat.chatroom;
 
+import com.clprunner.runnertalkchat.common.document.MongoBaseDocument;
 import lombok.*;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -8,5 +9,15 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @NoArgsConstructor
 @Builder
 @Getter
-public class ChatRoom {
+public class ChatRoom extends MongoBaseDocument {
+
+    @NonNull
+    private String name;
+    private String description;
+    @NonNull
+    private String creatorId;
+    @NonNull
+    private String[] participants;
+
+//    @TODO need to add lastMessage field
 }

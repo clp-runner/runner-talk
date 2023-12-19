@@ -5,6 +5,6 @@ import org.springframework.stereotype.Service
 
 @RequiredArgsConstructor
 @Service
-class ChatRoomService(val chatRollRepository: ChatRoomRepository) {
+class ChatRoomService(private val chatRollRepository: ChatRoomRepository) {
 
 }

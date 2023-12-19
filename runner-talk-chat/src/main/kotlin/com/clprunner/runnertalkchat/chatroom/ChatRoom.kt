@@ -8,10 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Builder
-@Getter
 class ChatRoom(
-    var name: String,
-    var description: String?,
-    var creatorId: String,
-    var participants: Array<String>
+    private var name: String,
+    private var description: String?,
+    private var creatorId: String,
+    private var participants: Array<String>
 ) : MongoBaseDocument()

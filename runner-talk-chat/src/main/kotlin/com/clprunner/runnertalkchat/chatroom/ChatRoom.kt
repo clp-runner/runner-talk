@@ -8,15 +8,9 @@ import org.springframework.data.mongodb.core.mapping.Document
 @AllArgsConstructor(access = AccessLevel.PRIVATE)
 @NoArgsConstructor
 @Builder
-@Getter
-class ChatRoom : MongoBaseDocument() {
-    private lateinit var name: String
-
-    private var description: String? = null
-
-    private lateinit var creatorId: String
-
-    private lateinit var participants: Array<String>
-
-//    @TODO need to add lastMessage field
-}
+class ChatRoom(
+    private var name: String,
+    private var description: String?,
+    private var creatorId: String,
+    private var participants: Array<String>
+) : MongoBaseDocument()

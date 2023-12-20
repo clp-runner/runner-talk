@@ -7,13 +7,8 @@ import org.springframework.data.annotation.LastModifiedDate
 import java.time.ZonedDateTime
 
 @Getter
-abstract class MongoBaseDocument {
-    @Id
-    private val id: String? = null
-
-    @CreatedDate
-    private val createdAt: ZonedDateTime? = null
-
-    @LastModifiedDate
-    private val updatedAt: ZonedDateTime? = null
-}
+abstract class MongoBaseDocument(
+    @Id var id: String? = null,
+    @CreatedDate var createdAt: ZonedDateTime? = null,
+    @LastModifiedDate var updatedAt: ZonedDateTime? = null
+)

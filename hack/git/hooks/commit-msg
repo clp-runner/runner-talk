@@ -1,7 +1,7 @@
 #!/bin/sh
 set -eu
 
-grep -qE '^(?:rt|RT)-\d+\s\w+' "$1" || grep -q 'Merge' "$1" || {
+grep -qE '^(?:RT)-\d+\s\w+' "$1" || grep -q 'Merge' "$1" || {
   echo >&2 '❌ Commit message must be semantic' >&2
   exit 1
 }

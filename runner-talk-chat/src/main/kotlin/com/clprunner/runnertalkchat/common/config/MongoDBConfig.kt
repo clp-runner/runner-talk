@@ -29,7 +29,7 @@ class MongoDBConfig: AbstractMongoClientConfiguration() {
     private lateinit var password: String
 
     override fun getDatabaseName(): String {
-        return "database"
+        return database
     }
     override fun mongoClient(): MongoClient {
         val connectionString = ConnectionString("mongodb://${username}:${password}@${host}:${port}/${database}?authSource=admin")
